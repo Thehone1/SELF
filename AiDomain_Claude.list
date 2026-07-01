@@ -1,11 +1,16 @@
 # Claude / Anthropic
-DOMAIN-KEYWORD,anthropic
 PROCESS-NAME,Claude
 PROCESS-NAME,Claude Helper
+PROCESS-NAME,Claude Helper (Renderer)
+PROCESS-NAME,Claude Helper (GPU)
+PROCESS-NAME,Claude Helper (Plugin)
+DOMAIN-KEYWORD,anthropic
 DOMAIN-KEYWORD,claude
+DOMAIN,api.anthropic.com
+DOMAIN,cdn.usefathom.com
+DOMAIN,claude.ai
+DOMAIN,console.anthropic.com
 DOMAIN-SUFFIX,anthropic.com
 DOMAIN-SUFFIX,claude.ai
-DOMAIN-SUFFIX,usefathom.com
-DOMAIN-SUFFIX,console.anthropic.com
 DOMAIN-SUFFIX,claude.com
 DOMAIN-SUFFIX,claudeusercontent.com
