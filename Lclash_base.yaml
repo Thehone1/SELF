@@ -45,15 +45,19 @@ proxy-groups:
 
   - name: 🤖 ChatGPT系AI
     type: select
-    proxies: [🫐 蓝莓桥AI节点, 🇺🇲 美国节点, 🇺🇲 美国手动, 🇸🇬 新加坡节点, 🇯🇵 日本节点, 🚀 节点选择]
+    proxies: [🇺🇲 美国节点, 🇺🇲 美国手动, 🇸🇬 新加坡节点, 🇯🇵 日本节点, 🚀 节点选择]
+    use: &ai_providers
+      - Provider_70AAA8
 
   - name: 🔵 Google系AI
     type: select
-    proxies: [🫐 蓝莓桥AI节点, 🇺🇲 美国节点, 🇺🇲 美国手动, 🇸🇬 新加坡节点, 🇯🇵 日本节点, 🇭🇰 香港节点, 🚀 节点选择]
+    proxies: [🇺🇲 美国节点, 🇺🇲 美国手动, 🇸🇬 新加坡节点, 🇯🇵 日本节点, 🇭🇰 香港节点, 🚀 节点选择]
+    use: *ai_providers
 
   - name: 🟠 Claude系AI
     type: select
-    proxies: [🫐 蓝莓桥AI节点, 🇺🇲 美国节点, 🇺🇲 美国手动, 🇸🇬 新加坡节点, 🚀 节点选择]
+    proxies: [🇺🇲 美国节点, 🇺🇲 美国手动, 🇸🇬 新加坡节点, 🚀 节点选择]
+    use: *ai_providers
 
   - name: 🟢 其他AI
     type: select
@@ -94,150 +98,3 @@ proxy-groups:
   - name: 📺 DisneyPlus
     type: select
     proxies: [🚀 节点选择, DIRECT, 🇸🇬 新加坡节点, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇺🇲 美国手动, 🇰🇷 韩国节点, 🇬🇧 英国节点]
-
-  - name: 📺 哔哩哔哩
-    type: select
-    proxies: [🎯 全球直连, 🇹🇼 台湾节点, 🇭🇰 香港节点]
-
-  - name: 🌍 国外媒体
-    type: select
-    proxies: [🚀 节点选择, DIRECT, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇸🇬 新加坡节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🇬🇧 英国节点]
-
-  - name: 🌏 国内媒体
-    type: select
-    proxies: [DIRECT, 🚀 节点选择, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇸🇬 新加坡节点, 🇯🇵 日本节点]
-
-  - name: Ⓜ️ 微软服务
-    type: select
-    proxies: [DIRECT, 🚀 节点选择, 🇺🇲 美国节点, 🇺🇲 美国手动, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇸🇬 新加坡节点, 🇯🇵 日本节点, 🇰🇷 韩国节点]
-
-  - name: 🍎 苹果服务
-    type: select
-    proxies: [DIRECT, 🚀 节点选择, 🇺🇲 美国节点, 🇺🇲 美国手动, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇸🇬 新加坡节点, 🇯🇵 日本节点, 🇰🇷 韩国节点]
-
-  - name: 🎮 游戏平台
-    type: select
-    proxies: [DIRECT, 🚀 节点选择, 🇺🇲 美国节点, 🇺🇲 美国手动, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇸🇬 新加坡节点, 🇯🇵 日本节点, 🇰🇷 韩国节点]
-
-  - name: 🎶 Spotify
-    type: select
-    proxies: [DIRECT, 🚀 节点选择, 🇺🇲 美国节点, 🇺🇲 美国手动, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇸🇬 新加坡节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇬🇧 英国节点]
-
-  - name: 🎯 全球直连
-    type: select
-    proxies: [DIRECT, 🚀 节点选择]
-
-  - name: 🛑 广告拦截
-    type: select
-    proxies: [REJECT, DIRECT]
-
-  - name: 🍃 应用净化
-    type: select
-    proxies: [REJECT, DIRECT]
-
-  - name: 🐟 漏网之鱼
-    type: select
-    proxies: [🚀 节点选择, 🇺🇲 美国节点, 🇺🇲 美国手动, DIRECT, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇸🇬 新加坡节点, 🇯🇵 日本节点, 🇰🇷 韩国节点]
-
-  - name: 🫐 蓝莓桥AI节点
-    type: select
-    use:
-      - Provider_70AAA8
-
-  - name: 🇭🇰 香港节点
-    type: url-test
-    use: *ordinary_providers
-    filter: "(港|HK|Hong Kong)"
-    url: &probe_url http://www.gstatic.com/generate_204
-    interval: &probe_interval 300
-    tolerance: &probe_tolerance 50
-
-  - name: 🇯🇵 日本节点
-    type: url-test
-    use: *ordinary_providers
-    filter: "(日本|川日|东京|大阪|泉日|埼玉|沪日|深日|[^-]日|JP|Japan)"
-    url: *probe_url
-    interval: *probe_interval
-    tolerance: *probe_tolerance
-
-  - name: 🇺🇲 美国节点
-    type: url-test
-    use: *ordinary_providers
-    filter: "(美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States)"
-    url: *probe_url
-    interval: *probe_interval
-    tolerance: *probe_tolerance
-
-  - name: 🇺🇲 美国手动
-    type: select
-    proxies: [DIRECT]
-    use: *ordinary_providers
-    filter: "(美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|US|United States)"
-
-  - name: 🫙 自定义
-    type: select
-    use: *ordinary_providers
-
-  - name: 🇹🇼 台湾节点
-    type: url-test
-    use: *ordinary_providers
-    filter: "(台|新北|彰化|TW|Taiwan)"
-    url: *probe_url
-    interval: *probe_interval
-    tolerance: *probe_tolerance
-
-  - name: 🇸🇬 新加坡节点
-    type: url-test
-    use: *ordinary_providers
-    filter: "(新加坡|坡|狮城|SG|SIN|Singapore|SEA)"
-    url: *probe_url
-    interval: *probe_interval
-    tolerance: *probe_tolerance
-
-  - name: 🇰🇷 韩国节点
-    type: url-test
-    use: *ordinary_providers
-    filter: "(KR|Korea|KOR|首尔|韩|韓)"
-    url: *probe_url
-    interval: *probe_interval
-    tolerance: *probe_tolerance
-
-  - name: 🇬🇧 英国节点
-    type: url-test
-    use: *ordinary_providers
-    filter: "(英|英国|United Kingdom|UK)"
-    url: *probe_url
-    interval: *probe_interval
-    tolerance: *probe_tolerance
-
-  - name: 🇮🇳 印度节点
-    type: url-test
-    use: *ordinary_providers
-    filter: "(印度|India|IN)"
-    url: *probe_url
-    interval: *probe_interval
-    tolerance: *probe_tolerance
-
-  - name: 🇪🇺 欧洲节点
-    type: url-test
-    use: *ordinary_providers
-    filter: "(法|德|Fr|De|瑞典|Swedish|SE)"
-    url: *probe_url
-    interval: *probe_interval
-    tolerance: *probe_tolerance
-
-  - name: 🇹🇷 土耳其节点
-    type: url-test
-    use: *ordinary_providers
-    filter: "(土|土耳其|Turkey|TR)"
-    url: *probe_url
-    interval: *probe_interval
-    tolerance: *probe_tolerance
-
-  - name: 🇲🇾 东南亚节点
-    type: url-test
-    use: *ordinary_providers
-    filter: "(马来西亚|Malaysia|MY|泰|印尼|Th)"
-    url: *probe_url
-    interval: *probe_interval
-    tolerance: *probe_tolerance
