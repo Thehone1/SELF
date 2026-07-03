@@ -1,36 +1,41 @@
-# --- Claude / Anthropic 完整分流方案 ---
+# Claude / Anthropic
 
-# [核心域名]
-DOMAIN-SUFFIX,anthropic.com,AI专用,pre-matching,extended-matching
-DOMAIN-SUFFIX,claude.ai,AI专用,pre-matching,extended-matching
-DOMAIN-SUFFIX,claude.com,AI专用,pre-matching,extended-matching
-DOMAIN-SUFFIX,clau.de,AI专用,pre-matching,extended-matching
-DOMAIN-SUFFIX,claudemcpclient.com,AI专用,pre-matching,extended-matching
-DOMAIN-SUFFIX,claudeusercontent.com,AI专用,pre-matching,extended-matching
+# Core domains
+DOMAIN-SUFFIX,anthropic.com
+DOMAIN-SUFFIX,claude.ai
+DOMAIN-SUFFIX,claude.com
+DOMAIN-SUFFIX,clau.de
+DOMAIN-SUFFIX,claudemcpclient.com
+DOMAIN-SUFFIX,claudeusercontent.com
 
-# [CDN 与基础设施]
-DOMAIN,cdn.anthropic.com,AI专用,pre-matching,extended-matching
-DOMAIN,anthropic.com.cdn.cloudflare.net,AI专用,pre-matching,extended-matching
-DOMAIN,servd-anthropic-website.b-cdn.net,AI专用,pre-matching,extended-matching
+# API / console
+DOMAIN,api.anthropic.com
+DOMAIN,console.anthropic.com
 
-# [认证与内容]
-DOMAIN,anthropic.auth0.com,AI专用,pre-matching,extended-matching
-DOMAIN,anthropic-com.ghost.io,AI专用,pre-matching,extended-matching
+# CDN and infrastructure
+DOMAIN,cdn.anthropic.com
+DOMAIN,anthropic.com.cdn.cloudflare.net
+DOMAIN,servd-anthropic-website.b-cdn.net
 
-# [监控与反欺诈 - 极其重要，防止 IP 飘移触发风控]
-DOMAIN-SUFFIX,sentry.io,AI专用,pre-matching,extended-matching
-DOMAIN-SUFFIX,statsigapi.net,AI专用,pre-matching,extended-matching
-# 注意：Datadog 接收端点，中间是连字符
-DOMAIN,browser-intake-us5-datadoghq.com,AI专用,pre-matching,extended-matching
-DOMAIN-KEYWORD,datadog,AI专用,pre-matching,extended-matching
-DOMAIN-KEYWORD,sift,AI专用,pre-matching,extended-matching
+# Auth and content
+DOMAIN,anthropic.auth0.com
+DOMAIN,anthropic-com.ghost.io
 
-# [第三方组件 / 客服]
-DOMAIN-SUFFIX,intercom.io,AI专用,pre-matching,extended-matching
-DOMAIN-SUFFIX,intercomcdn.com,AI专用,pre-matching,extended-matching
-DOMAIN,cdn.usefathom.com,AI专用,pre-matching,extended-matching
+# Monitoring and risk-control dependencies
+DOMAIN-SUFFIX,sentry.io
+DOMAIN-SUFFIX,statsigapi.net
+DOMAIN,browser-intake-us5-datadoghq.com
+DOMAIN-KEYWORD,datadog
+DOMAIN-KEYWORD,sift
 
-# [IP 段与 ASN 兜底 - 最后一道防线]
-IP-CIDR,160.79.104.0/21,AI专用,no-resolve
-IP-CIDR6,2607:6BC0::/32,AI专用,no-resolve
-IP-ASN,399358,AI专用,no-resolve
+# Third-party components / support
+DOMAIN-SUFFIX,intercom.io
+DOMAIN-SUFFIX,intercomcdn.com
+DOMAIN,cdn.usefathom.com
+
+# Claude-owned IP ranges
+IP-CIDR,160.79.104.0/21,no-resolve
+IP-CIDR6,2607:6BC0::/32,no-resolve
+
+# Anthropic ASN. Keep this only in classical rules; domain/ipcidr providers may ignore it.
+IP-ASN,399358,no-resolve
